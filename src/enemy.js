@@ -1,3 +1,9 @@
-class enemy extends Phaser.scene{
-    
+class enemy extends Phaser.gameobjects.Sprite{
+    constructor() {
+        super();
+    }
+
+    update() {
+
+    }
 }

@@ -9,7 +9,9 @@ class Play extends Phaser.Scene {
         this.preload.image('placeholder_blue', 'assets/placeholder_blue.png');
     }
 
-    create() {}
+    create() {
+        //this.background = 
+    }
 
     update() {}
 }
