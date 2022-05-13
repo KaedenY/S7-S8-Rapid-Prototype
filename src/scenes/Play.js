@@ -3,7 +3,11 @@ class Play extends Phaser.Scene {
         super("Play");
     }
 
-    create() {}
+    create() {
 
-    update() {}
+    }
+
+    update() {
+        
+    }
 }
