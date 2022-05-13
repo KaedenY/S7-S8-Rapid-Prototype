@@ -3,7 +3,6 @@ class Play extends Phaser.Scene {
         super("Play");
     }
 
-<<<<<<< HEAD:src/Play.js
     preload() {
         this.preload.image("placeholder_black", 'assets/placeholder_black.png');
         this.preload.image('placeholder_grey', 'assets/placeholder_grey');
@@ -11,13 +10,9 @@ class Play extends Phaser.Scene {
     }
 
     create() {}
-=======
-    create() {
->>>>>>> 4dd0e14e077c3f229c25e59eaf8bd4b49570555e:src/scenes/Play.js
 
-    }
 
     update() {
-        
+        return;
     }
 }
