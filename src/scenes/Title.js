@@ -12,6 +12,8 @@ class Title extends Phaser.Scene {
         this.load.image("Lfairy", "./assets/bg_leftFairy.png");
         this.load.image("Rfairy", "./assets/bg_rightFairy.png");
         this.load.image("rolypoly", "./assets/rolyPoly.png");
+        this.load.image('slug', './assets/slugEnemy.png');
+        this.load.image('snail', './assets/snailEnemy.png');
     }
 
     create() {
