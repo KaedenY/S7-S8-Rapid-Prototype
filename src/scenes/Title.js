@@ -67,18 +67,21 @@ class Title extends Phaser.Scene {
             targets: this.title,
             y: "-= 10",
             repeat: -1,
+            ease: 'Sine.easeInOut',
             yoyo: true
         });
         this.tweens.add({
             targets: this.Lfairy, 
             y: "-= 50",
             repeat: -1,
+            ease: 'Sine.easeInOut',
             yoyo: true
         });
         this.tweens.add({
                 targets: this.Rfairy,
                 y: "-= 50",
                 repeat: -1,
+                ease: 'Sine.easeInOut',
                 yoyo: true,
                 delay: 250
             })
@@ -110,6 +113,8 @@ class Title extends Phaser.Scene {
         this.add.text(game.config.width/2, 500, "tap here!", menuConfig).setOrigin(0.5);
 
         spacebar = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE); 
+
+        this.input.on('pointerdown', this.sceneSwap, this);
     }
 
     update() {
@@ -121,5 +126,9 @@ class Title extends Phaser.Scene {
         this.bg.tilePositionX += this.SCROLL_SPEED;
         this.logs.tilePositionX += this.SCROLL_SPEED+1;
         this.floor.tilePositionX += this.SCROLL_SPEED+1;
+    }
+
+    sceneSwap(){
+        this.scene.start('Play');
     }
 }
