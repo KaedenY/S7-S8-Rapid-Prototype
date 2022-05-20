@@ -25,7 +25,7 @@ class Title extends Phaser.Scene {
         this.Lfairy = this.add.image(0, 0, "Lfairy").setOrigin(0);
         this.Rfairy = this.add.image(0, 0, "Rfairy").setOrigin(0);
         this.title = this.add.image(50, 0, "title").setOrigin(0);
-        this.rolypoly = this.add.sprite(game.config.width/2, 526, "rolypoly").setScale(0.3).setInteractive();
+        this.rolypoly = this.add.sprite(game.config.width/2, 500, "rolypoly").setScale(0.5).setInteractive();
 
         // when rolypoly is clicked
         this.rolypoly.on("pointerup", () => {
@@ -38,6 +38,13 @@ class Title extends Phaser.Scene {
             this.tweens.add({
                 targets: this.Rfairy,
                 x: 500,
+                duration: 600
+            })
+
+            // rolypoly tween
+            this.tweens.add({
+                targets: this.rolypoly,
+                y: -300,
                 duration: 600
             })
 
@@ -62,18 +69,21 @@ class Title extends Phaser.Scene {
             targets: this.title,
             y: "-= 10",
             repeat: -1,
+            ease: 'Sine.easeInOut',
             yoyo: true
         });
         this.tweens.add({
             targets: this.Lfairy, 
             y: "-= 50",
             repeat: -1,
+            ease: 'Sine.easeInOut',
             yoyo: true
         });
         this.tweens.add({
                 targets: this.Rfairy,
                 y: "-= 50",
                 repeat: -1,
+                ease: 'Sine.easeInOut',
                 yoyo: true,
                 delay: 250
             })
@@ -84,7 +94,7 @@ class Title extends Phaser.Scene {
         })
         this.tweens.add({
             targets: this.rolypoly,
-            scale: {from: 0.3, to: 0.5},
+            scale: {from: 0.5, to: 0.7},
             yoyo: true,
             repeat: -1
         })
@@ -102,8 +112,11 @@ class Title extends Phaser.Scene {
         }
 
         // title text
-        this.add.text(game.config.width/2, 526, "tap here!", menuConfig).setOrigin(0.5);
+        this.add.text(game.config.width/2, 500, "tap here!", menuConfig).setOrigin(0.5);
+
         spacebar = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE); 
+
+        this.input.on('pointerdown', this.sceneSwap, this);
     }
 
     update() {
@@ -115,5 +128,9 @@ class Title extends Phaser.Scene {
         this.bg.tilePositionX += this.SCROLL_SPEED;
         this.logs.tilePositionX += this.SCROLL_SPEED+1;
         this.floor.tilePositionX += this.SCROLL_SPEED+1;
+    }
+
+    sceneSwap(){
+        this.scene.start('Play');
     }
 }
