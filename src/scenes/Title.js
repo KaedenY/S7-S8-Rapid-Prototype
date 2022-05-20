@@ -39,6 +39,13 @@ class Title extends Phaser.Scene {
                 duration: 600
             })
 
+            // rolypoly tween
+            this.tweens.add({
+                targets: this.rolypoly,
+                y: -300,
+                duration: 600
+            })
+
             // camera fade
             this.time.delayedCall(300, () => {this.cameras.main.fade(300,100,0,100);});
 
@@ -101,6 +108,7 @@ class Title extends Phaser.Scene {
 
         // title text
         this.add.text(game.config.width/2, 500, "tap here!", menuConfig).setOrigin(0.5);
+
         spacebar = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE); 
     }
 
